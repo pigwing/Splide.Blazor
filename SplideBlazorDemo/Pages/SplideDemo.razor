@@ -1,0 +1,41 @@
+﻿@page "/splide"
+@using Splide.Blazor.EventArgs
+
+<SplideSection Style="width: 300px;" Attributes="@(new Dictionary<string, object>(){{"aria-label", "Basic Structure Example"}, {"role", "region"}})" Click="OnClick" Moved="OnMoved" Options="_options">
+    <SplideSlide>
+        <img src="images/javascript-logo.svg"/>
+    </SplideSlide>
+    <SplideSlide>
+        <img src="images/logo.svg"/>
+    </SplideSlide>
+    <SplideSlide>
+        <img src="images/react-logo.svg"/>
+    </SplideSlide>
+    <SplideSlide>
+        <img src="images/svelte-logo.svg"/>
+    </SplideSlide>
+    <SplideSlide>
+        <img src="images/typescript-logo.svg"/>
+    </SplideSlide>
+    <SplideSlide>
+        <img src="images/vue-logo.svg" />
+    </SplideSlide>
+</SplideSection>
+
+@code
+{
+    readonly Options _options = new Options()
+    {
+        Pagination = false,
+        Arrows = false
+    };
+    private void OnClick(SlideEventArgs args)
+    {
+
+    }
+
+    private void OnMoved(MoveEventArgs moveEventArgs)
+    {
+
+    }
+}

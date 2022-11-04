@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Splide.Blazor", "Splide.Blazor\Splide.Blazor.csproj", "{3C555CCB-41AD-4056-AC00-5925BD38EE5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SplideBlazorDemo", "SplideBlazorDemo\SplideBlazorDemo.csproj", "{5F829DE7-59BA-4AC1-93F4-0762D7C991A5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3C555CCB-41AD-4056-AC00-5925BD38EE5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C555CCB-41AD-4056-AC00-5925BD38EE5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C555CCB-41AD-4056-AC00-5925BD38EE5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C555CCB-41AD-4056-AC00-5925BD38EE5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F829DE7-59BA-4AC1-93F4-0762D7C991A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F829DE7-59BA-4AC1-93F4-0762D7C991A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F829DE7-59BA-4AC1-93F4-0762D7C991A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F829DE7-59BA-4AC1-93F4-0762D7C991A5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {566A9EA7-3B7C-4F82-B18F-C60C876B6AE8}
+	EndGlobalSection
+EndGlobal
