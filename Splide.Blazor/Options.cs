@@ -10,6 +10,7 @@ namespace Splide.Blazor
 {
     public class Options
     {
+        public bool AutoMount { get; set; } = true;
         public string Type { get; set; } = "slide";
         public string Role { get; set; } = "region";
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]

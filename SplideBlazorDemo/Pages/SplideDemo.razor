@@ -1,7 +1,31 @@
 ﻿@page "/splide"
 @using Splide.Blazor.EventArgs
 
-<SplideSection Style="width: 300px;" Attributes="@(new Dictionary<string, object>(){{"aria-label", "Basic Structure Example"}, {"role", "region"}})" Click="OnClick" Moved="OnMoved" Options="_options">
+<h1>Default</h1>
+<SplideSection @ref="secondarySplideSection" Style="width: 300px;" Attributes="@(new Dictionary<string, object>(){{"aria-label", "Basic Structure Example"}, {"role", "region"}})">
+    <SplideSlide>
+        <img src="images/javascript-logo.svg" />
+    </SplideSlide>
+    <SplideSlide>
+        <img src="images/logo.svg" />
+    </SplideSlide>
+    <SplideSlide>
+        <img src="images/react-logo.svg" />
+    </SplideSlide>
+    <SplideSlide>
+        <img src="images/svelte-logo.svg" />
+    </SplideSlide>
+    <SplideSlide>
+        <img src="images/typescript-logo.svg" />
+    </SplideSlide>
+    <SplideSlide>
+        <img src="images/vue-logo.svg" />
+    </SplideSlide>
+</SplideSection>
+
+
+<h1 style="margin-top: 100px;">Thumbnail Carousel</h1>
+<SplideSection @ref="primarySplideSection" Style="width: 300px;" Attributes="@(new Dictionary<string, object>(){{"aria-label", "Basic Structure Example"}, {"role", "region"}})" Click="OnClick" Moved="OnMoved" Options="_options">
     <SplideSlide>
         <img src="images/javascript-logo.svg"/>
     </SplideSlide>
@@ -22,12 +46,47 @@
     </SplideSlide>
 </SplideSection>
 
+<SplideSection @ref="secondarySplideSection" Style="width: 300px;" Attributes="@(new Dictionary<string, object>(){{"aria-label", "Basic Structure Example"}, {"role", "region"}})" Options="@(new Options(){AutoMount = false, Gap = "10", Rewind = true, Pagination = false, IsNavigation = true})">
+    <SplideSlide>
+        <img src="images/javascript-logo.svg" />
+    </SplideSlide>
+    <SplideSlide>
+        <img src="images/logo.svg" />
+    </SplideSlide>
+    <SplideSlide>
+        <img src="images/react-logo.svg" />
+    </SplideSlide>
+    <SplideSlide>
+        <img src="images/svelte-logo.svg" />
+    </SplideSlide>
+    <SplideSlide>
+        <img src="images/typescript-logo.svg" />
+    </SplideSlide>
+    <SplideSlide>
+        <img src="images/vue-logo.svg" />
+    </SplideSlide>
+</SplideSection>
+
 @code
 {
+    SplideSection? primarySplideSection;
+    SplideSection? secondarySplideSection;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await base.OnAfterRenderAsync(firstRender);
+
+        if (firstRender)
+        {
+            await primarySplideSection!.Sync(secondarySplideSection!);
+        }
+    }
+
     readonly Options _options = new Options()
     {
         Pagination = false,
-        Arrows = false
+        Arrows = false,
+        AutoMount = false
     };
     private void OnClick(SlideEventArgs args)
     {

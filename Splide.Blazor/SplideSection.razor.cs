@@ -27,6 +27,8 @@ namespace Splide.Blazor
         [Parameter]
         public EventCallback<ElementReference> Mounted { get; set; }
 
+        private bool _isFirstRender;
+
         public async Task OnMounted()
         {
             await Mounted.InvokeAsync(Element);
@@ -411,10 +413,22 @@ namespace Splide.Blazor
             if (firstRender)
             {
                 await module!.InvokeVoidAsync("init", UniqueId, Options, Reference, GetEventsBinding());
+                _isFirstRender = true;
             }
         }
 
-        
+        #region method
+
+        public async Task Sync(SplideSection splideSection)
+        {
+            while (!_isFirstRender)
+            {
+                await Task.Delay(100);
+            }
+            await module!.InvokeVoidAsync("sync", UniqueId, splideSection.UniqueId);
+        }
+
+        #endregion
 
         private Dictionary<string, bool> GetEventsBinding()
         {

@@ -31,7 +31,7 @@ namespace Splide.Blazor
 
         protected override void OnInitialized()
         {
-            UniqueId = Convert.ToBase64String(Guid.NewGuid().ToByteArray()).Replace("/", "-").Replace("+", "-").Substring(0, 10);
+            UniqueId = $"Q{Convert.ToBase64String(Guid.NewGuid().ToByteArray()).Replace("/", "-").Replace("+", "-").Substring(0, 10)}";
         }
 
         protected override async Task OnAfterRenderAsync(bool firstRender)

@@ -9,7 +9,7 @@ export function init(id, options, ref, eventsBinding) {
     if (options !== null && options !== undefined) {
         splide = new Splide('#' + id, options);
     } else {
-        slide = new Splide('#' + id, options);
+        splide = new Splide('#' + id);
     }
     Splides[id] = splide;
     if (eventsBinding.mounted) {
@@ -138,7 +138,7 @@ export function init(id, options, ref, eventsBinding) {
         });
     }
 
-    if (options.autoMount) {
+    if (options == null || options == undefined || options.autoMount) {
         splide.mount();
     }
 }
