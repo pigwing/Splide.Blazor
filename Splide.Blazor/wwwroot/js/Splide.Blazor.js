@@ -7,7 +7,7 @@ export function init(id, options, ref, eventsBinding) {
 
     let splide;
     if (options !== null && options !== undefined) {
-        splide = new Splide('.splide', options);
+        splide = new Splide('#' + id, options);
     } else {
         slide = new Splide('.splide');
     }
