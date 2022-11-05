@@ -22,12 +22,15 @@ namespace Splide.Blazor
         [Parameter]
         public Options? Options { get; set; }
 
-        #region Events
-
         [Parameter]
         public EventCallback<ElementReference> Mounted { get; set; }
 
-        private bool _isFirstRender;
+
+        private readonly List<Func<IJSObjectReference, ValueTask>> _funcs = new List<Func<IJSObjectReference, ValueTask>>();
+
+        #region Events
+
+
 
         public async Task OnMounted()
         {
@@ -413,19 +416,22 @@ namespace Splide.Blazor
             if (firstRender)
             {
                 await module!.InvokeVoidAsync("init", UniqueId, Options, Reference, GetEventsBinding());
-                _isFirstRender = true;
+                foreach(Func<IJSObjectReference, ValueTask> func in _funcs)
+                {
+                    await func(module!);
+                }
             }
         }
 
         #region method
 
-        public async Task Sync(SplideSection splideSection)
+        public async ValueTask Sync(SplideSection splideSection)
         {
-            while (!_isFirstRender)
-            {
-                await Task.Delay(100);
-            }
-            await module!.InvokeVoidAsync("sync", UniqueId, splideSection.UniqueId);
+            _funcs.Add(jsModule => {
+                return jsModule.InvokeVoidAsync("sync", UniqueId, splideSection.UniqueId);
+            });
+
+            await ValueTask.CompletedTask;
         }
 
         #endregion
