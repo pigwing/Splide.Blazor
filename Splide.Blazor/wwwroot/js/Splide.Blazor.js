@@ -1,6 +1,6 @@
 ﻿import '/_content/Splide.Blazor/js/splide.min.js';
 
-
+var Splides = {};
 
 export function init(id, options, ref, eventsBinding) {
     let el = document.getElementById(id);
@@ -9,10 +9,9 @@ export function init(id, options, ref, eventsBinding) {
     if (options !== null && options !== undefined) {
         splide = new Splide('#' + id, options);
     } else {
-        slide = new Splide('.splide');
+        slide = new Splide('#' + id, options);
     }
-
-    window.splide = splide;
+    Splides[id] = splide;
     if (eventsBinding.mounted) {
         splide.on('mounted', function () {
             ref.invokeMethodAsync('Splide.Mounted');
@@ -139,5 +138,16 @@ export function init(id, options, ref, eventsBinding) {
         });
     }
 
-    splide.mount();
+    if (options.autoMount) {
+        splide.mount();
+    }
+}
+
+export function sync(primaryId, secondaryId) {
+    let primarySplide = Splides[primaryId];
+    let secondarySplide = Splides[secondaryId];
+
+    primarySplide.sync(secondarySplide);
+    primarySplide.mount();
+    secondarySplide.mount();
 }
