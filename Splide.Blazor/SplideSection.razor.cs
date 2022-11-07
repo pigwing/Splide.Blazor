@@ -415,7 +415,7 @@ namespace Splide.Blazor
             await base.OnAfterRenderAsync(firstRender);
             if (firstRender)
             {
-                await module!.InvokeVoidAsync("init", UniqueId, Options, Reference, GetEventsBinding());
+                await module!.InvokeVoidAsync("init", GetId(), Options, Reference, GetEventsBinding());
                 foreach(Func<IJSObjectReference, ValueTask> func in _funcs)
                 {
                     await func(module!);
@@ -428,7 +428,7 @@ namespace Splide.Blazor
         public async ValueTask Sync(SplideSection splideSection)
         {
             ValueTask Func(IJSObjectReference jsModule) =>
-                jsModule.InvokeVoidAsync("sync", UniqueId, splideSection.UniqueId);
+                jsModule.InvokeVoidAsync("sync", GetId(), splideSection.GetId());
             if (module != null)
             {
                 await Func(module);
@@ -439,6 +439,21 @@ namespace Splide.Blazor
             }
 
             await ValueTask.CompletedTask;
+        }
+
+        public async ValueTask Go(string pageCondition)
+        {
+            if (module != null)
+            {
+                if (int.TryParse(pageCondition, out int pageNumber))
+                {
+                    await module.InvokeVoidAsync("go", GetId()!, pageNumber);
+                }
+                else
+                {
+                    await module.InvokeVoidAsync("go", GetId()!, pageCondition);
+                }
+            }
         }
 
         #endregion

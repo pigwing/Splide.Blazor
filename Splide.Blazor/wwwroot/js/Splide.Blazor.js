@@ -151,3 +151,8 @@ export function sync(primaryId, secondaryId) {
     primarySplide.mount();
     secondarySplide.mount();
 }
+
+export function go(id, pageCondition) {
+    let splide = Splides[id];
+    splide.go(pageCondition);
+}

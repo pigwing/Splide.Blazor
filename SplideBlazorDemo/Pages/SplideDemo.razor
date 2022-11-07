@@ -67,6 +67,11 @@
     </SplideSlide>
 </SplideSection>
 
+<button class="btn btn-primary" @onclick="@(async _ => await OnGo("1"))">Go page 1</button>
+<button class="btn btn-primary" @onclick="@(async _ => await OnGo("+2"))">Go page +2</button>
+<button class="btn btn-primary" @onclick="@(async _ => await OnGo(">"))">Go page ></button>
+<button class="btn btn-primary" @onclick="@(async _ => await OnGo(">2"))">Go page >2</button>
+
 @code
 {
     SplideSection? primarySplideSection;
@@ -96,5 +101,10 @@
     private void OnMoved(MoveEventArgs moveEventArgs)
     {
 
+    }
+
+    private async ValueTask OnGo(string pageCondition)
+    {
+        await secondarySplideSection!.Go(pageCondition);
     }
 }
