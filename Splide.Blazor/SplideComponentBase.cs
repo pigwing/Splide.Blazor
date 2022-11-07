@@ -67,6 +67,7 @@ namespace Splide.Blazor
         {
             _reference?.Dispose();
             _reference = null;
+            module = null;
             return ValueTask.CompletedTask;
         }
     }

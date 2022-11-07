@@ -427,9 +427,16 @@ namespace Splide.Blazor
 
         public async ValueTask Sync(SplideSection splideSection)
         {
-            _funcs.Add(jsModule => {
-                return jsModule.InvokeVoidAsync("sync", UniqueId, splideSection.UniqueId);
-            });
+            ValueTask Func(IJSObjectReference jsModule) =>
+                jsModule.InvokeVoidAsync("sync", UniqueId, splideSection.UniqueId);
+            if (module != null)
+            {
+                await Func(module);
+            }
+            else
+            {
+                _funcs.Add(Func);
+            }
 
             await ValueTask.CompletedTask;
         }
