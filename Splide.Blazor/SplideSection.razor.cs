@@ -447,12 +447,20 @@ namespace Splide.Blazor
             {
                 if (int.TryParse(pageCondition, out int pageNumber))
                 {
-                    await module.InvokeVoidAsync("go", GetId()!, pageNumber);
+                    await module.InvokeVoidAsync("go", GetId(), pageNumber);
                 }
                 else
                 {
-                    await module.InvokeVoidAsync("go", GetId()!, pageCondition);
+                    await module.InvokeVoidAsync("go", GetId(), pageCondition);
                 }
+            }
+        }
+
+        public async ValueTask Mount()
+        {
+            if (module != null)
+            {
+                await module.InvokeVoidAsync("mount", GetId());
             }
         }
 

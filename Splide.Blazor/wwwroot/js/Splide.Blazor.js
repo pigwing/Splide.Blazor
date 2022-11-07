@@ -156,3 +156,10 @@ export function go(id, pageCondition) {
     let splide = Splides[id];
     splide.go(pageCondition);
 }
+
+export function mount(id) {
+    let splide = Splides[id];
+    if (splide !== null && splide !== undefined) {
+        splide.mount();
+    }
+}
