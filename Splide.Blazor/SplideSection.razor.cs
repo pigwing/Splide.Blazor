@@ -464,6 +464,15 @@ namespace Splide.Blazor
             }
         }
 
+        public async ValueTask SetOptions(Options options)
+        {
+            if (module != null)
+            {
+                options.AutoMount = null;
+                await module.InvokeVoidAsync("setOptions", GetId(), options);
+            }
+        }
+
         #endregion
 
         private Dictionary<string, bool> GetEventsBinding()

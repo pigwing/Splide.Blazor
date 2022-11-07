@@ -2,7 +2,7 @@
 @using Splide.Blazor.EventArgs
 
 <h1>Default</h1>
-<SplideSection Style="width: 300px;" Attributes="@(new Dictionary<string, object>(){{"aria-label", "Basic Structure Example"}, {"role", "region"}})">
+<SplideSection @ref="defaultSplideSection" Style="width: 300px;" Attributes="@(new Dictionary<string, object>(){{"aria-label", "Basic Structure Example"}, {"role", "region"}})" Options="@(new Options(){PerPage = 2, PerMove = 1})">
     <SplideSlide>
         <img src="images/javascript-logo.svg" />
     </SplideSlide>
@@ -22,7 +22,7 @@
         <img src="images/vue-logo.svg" />
     </SplideSlide>
 </SplideSection>
-
+<button class="btn btn-primary" @onclick="@(async _ => await OnSetOptions())">set perPage = 3</button>
 
 <h1 style="margin-top: 100px;">Thumbnail Carousel</h1>
 <SplideSection @ref="primarySplideSection" Style="width: 300px;" Attributes="@(new Dictionary<string, object>(){{"aria-label", "Basic Structure Example"}, {"role", "region"}})" Click="OnClick" Moved="OnMoved" Options="_options">
@@ -74,6 +74,7 @@
 
 @code
 {
+    SplideSection? defaultSplideSection;
     SplideSection? primarySplideSection;
     SplideSection? secondarySplideSection;
 
@@ -106,5 +107,10 @@
     private async ValueTask OnGo(string pageCondition)
     {
         await secondarySplideSection!.Go(pageCondition);
+    }
+
+    private async ValueTask OnSetOptions()
+    {
+        await defaultSplideSection!.SetOptions(new Options() { PerPage = 3 });
     }
 }

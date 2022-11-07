@@ -163,3 +163,10 @@ export function mount(id) {
         splide.mount();
     }
 }
+
+export function setOptions(id, options) {
+    let splide = Splides[id];
+    if (splide !== null && splide !== undefined) {
+        splide.options = options;
+    }
+}
