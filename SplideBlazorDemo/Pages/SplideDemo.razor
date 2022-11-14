@@ -46,7 +46,7 @@
     </SplideSlide>
 </SplideSection>
 
-<SplideSection @ref="secondarySplideSection" Style="width: 300px;" Attributes="@(new Dictionary<string, object>(){{"aria-label", "Basic Structure Example"}, {"role", "region"}})" Options="@(new Options(){AutoMount = false, Gap = "10", Rewind = true, Pagination = false, IsNavigation = true})">
+<SplideSection @ref="secondarySplideSection" Style="width: 300px;" Attributes="@(new Dictionary<string, object>(){{"aria-label", "Basic Structure Example"}, {"role", "region"}})" Options="@(new Options(){AutoMount = false, Gap = "10", Rewind = true, Pagination = false, IsNavigation = true, Breakpoints = new Dictionary<int, object>(){{768, new {PerPage = 1}}}})">
     <SplideSlide>
         <img src="images/javascript-logo.svg" />
     </SplideSlide>

@@ -129,7 +129,7 @@ namespace Splide.Blazor
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public bool? Live { get; set; } //= true;
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string? Breakpoints { get; set; }
+        public object? Breakpoints { get; set; }
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public ReducedMotionOption? ReducedMotion { get; set; }
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
