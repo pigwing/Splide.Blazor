@@ -2,7 +2,7 @@
 @using Splide.Blazor.EventArgs
 
 <h1>Default</h1>
-<SplideSection @ref="defaultSplideSection" Style="width: 300px;" Attributes="@(new Dictionary<string, object>(){{"aria-label", "Basic Structure Example"}, {"role", "region"}})" Options="@(new Options(){PerPage = 2, PerMove = 1})">
+<SplideSection @ref="defaultSplideSection" Style="width: 300px;" Options="@(new Options(){PerPage = 2, PerMove = 1})" class="carousel-single">
     <SplideSlide>
         <img src="images/javascript-logo.svg" />
     </SplideSlide>
@@ -25,7 +25,7 @@
 <button class="btn btn-primary" @onclick="@(async _ => await OnSetOptions())">set perPage = 3</button>
 
 <h1 style="margin-top: 100px;">Thumbnail Carousel</h1>
-<SplideSection @ref="primarySplideSection" Style="width: 300px;" Attributes="@(new Dictionary<string, object>(){{"aria-label", "Basic Structure Example"}, {"role", "region"}})" Click="OnClick" Moved="OnMoved" Options="_options">
+<SplideSection @ref="primarySplideSection" Style="width: 300px;"  Click="OnClick" Moved="OnMoved" Options="_options">
     <SplideSlide>
         <img src="images/javascript-logo.svg"/>
     </SplideSlide>
@@ -46,7 +46,7 @@
     </SplideSlide>
 </SplideSection>
 
-<SplideSection @ref="secondarySplideSection" Style="width: 300px;" Attributes="@(new Dictionary<string, object>(){{"aria-label", "Basic Structure Example"}, {"role", "region"}})" Options="@(new Options(){AutoMount = false, Gap = "10", Rewind = true, Pagination = false, IsNavigation = true, Breakpoints = new Dictionary<int, object>(){{768, new {PerPage = 1}}}})">
+<SplideSection @ref="secondarySplideSection" Style="width: 300px;"  Options="@(new Options(){AutoMount = false, Gap = "10", Rewind = true, Pagination = false, IsNavigation = true, Breakpoints = new Dictionary<int, object>(){{768, new {PerPage = 1}}}})">
     <SplideSlide>
         <img src="images/javascript-logo.svg" />
     </SplideSlide>

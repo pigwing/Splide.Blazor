@@ -13,11 +13,9 @@ using Splide.Blazor.EventArgs;
 
 namespace Splide.Blazor
 {
-    public partial class SplideSection
+    public partial class SplideSection : SplideComponentBase
     {
         private const string ConsoleLogMethod = "console.log";
-        [Parameter]
-        public RenderFragment? ChildContent { get; set; }
 
         [Parameter]
         public Options? Options { get; set; }
@@ -409,6 +407,11 @@ namespace Splide.Blazor
 
         #endregion
 
+        protected override async Task OnInitializedAsync()
+        {
+            await base.OnInitializedAsync();
+            
+        }
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {

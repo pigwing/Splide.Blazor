@@ -1,6 +1,6 @@
 ﻿@inherits SplideComponentBase
 
-<section @ref="Element" id="@GetId()" class="splide" style="@Style" @attributes="Attributes">
+<section @ref="Element" style="@Style" @attributes="Attributes" class="splide @GetCssClass()" id="@GetId()">
     <div class="splide__track">
         <ul class="splide__list">
             @ChildContent

@@ -10,24 +10,12 @@ using Microsoft.JSInterop;
 
 namespace Splide.Blazor
 {
-    public class SplideComponentBase : Base, IAsyncDisposable
+    public class SplideComponentBase : ComponentBaseWithChildren, IAsyncDisposable
     {
 
         public ElementReference Element { get; internal set; }
 
         protected IJSObjectReference? module;
-
-        public string? UniqueId { get; set; }
-
-        protected string? GetId()
-        {
-            if (Attributes != null && Attributes.TryGetValue("id", out var id) && !string.IsNullOrEmpty(Convert.ToString(@id)))
-            {
-                return $"{@id}";
-            }
-
-            return UniqueId;
-        }
 
         protected override void OnInitialized()
         {

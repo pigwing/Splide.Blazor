@@ -9,7 +9,9 @@ namespace Splide.Blazor
 {
     public partial class SplideSlide
     {
-        [Parameter]
-        public RenderFragment? ChildContent { get; set; }
+        protected override string GetComponentCssClass()
+        {
+            return "splide__slide";
+        }
     }
 }
