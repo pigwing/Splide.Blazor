@@ -8,7 +8,7 @@
     <PackageIcon>logo.png</PackageIcon>
     <PackageProjectUrl>https://github.com/pigwing/Splide.Blazor</PackageProjectUrl>
     <FileVersion>4</FileVersion>
-    <Version>4.1.3.4</Version>
+    <Version>4.1.3.5</Version>
   </PropertyGroup>
 
   <ItemGroup>

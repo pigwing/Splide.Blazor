@@ -27,13 +27,13 @@ namespace Splide.Blazor
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public bool? RewindByDrag { get; set; }
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string? Width { get; set; }
+        public object? Width { get; set; }
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string? Height { get; set; }
+        public object? Height { get; set; }
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string? FixedWidth { get; set; }
+        public object? FixedWidth { get; set; }
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string? FixedHeight { get; set; }
+        public object? FixedHeight { get; set; }
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public double? HeightRatio { get; set; }
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -53,9 +53,9 @@ namespace Splide.Blazor
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string? Focus { get; set; } //= "center";
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string? Gap { get; set; }
+        public object? Gap { get; set; }
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string? Padding { get; set; }
+        public object? Padding { get; set; }
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public bool? Arrows { get; set; } //= true;
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
