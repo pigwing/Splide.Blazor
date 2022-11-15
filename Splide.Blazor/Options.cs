@@ -51,7 +51,7 @@ namespace Splide.Blazor
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public bool? CloneStatus { get; set; }
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string? Focus { get; set; } //= "center";
+        public object? Focus { get; set; } //= "center";
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public object? Gap { get; set; }
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
